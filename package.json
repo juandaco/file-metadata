@@ -1,0 +1,24 @@
+{
+  "name": "file-metadata",
+  "version": "1.0.0",
+  "description": "File Metadata Microservice for FreeCodeCamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juandaco/file-metadata.git"
+  },
+  "author": "Juan D Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juandaco/file-metadata/issues"
+  },
+  "homepage": "https://github.com/juandaco/file-metadata#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "mongodb": "^2.2.22"
+  }
+}
