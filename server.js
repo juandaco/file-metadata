@@ -1,22 +1,30 @@
 const express = require('express'),
-  assert = require('assert'),
-  // request = require('request'),
-  mongoClient = require('mongodb').MongoClient;
+  path = require('path'),
+  multer = require('multer');
 
 const app = express();
-
+var storage = multer.memoryStorage();
+var upload = multer({ 
+	storage: storage,
+	limits: {fileSize: 1000000},
+ });
 const port = process.env.PORT || 8080;
-const dbURL = process.env.MLAB_CREDENTIALS;
 
+// 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
 
-mongoClient.connect(dbURL, (err, db) => {
+app.post('/get-file-size', upload.single('file'), (req, res) => {
+  
+  if (req.file){
+	  res.json({ size: req.file.size });
+  } else {
+  	res.json({size: 0});
+  }
+});
 
-  assert.equal(null, err);
-  console.log('Succesfully connected to the Database');
-
-
-  app.listen(port, function() {
-    const p = this.address().port;
-    console.log(`Server is listening in port ${p}`);
-  });
+app.listen(port, function() {
+  const p = this.address().port;
+  console.log(`Server is listening in port ${p}`);
 });

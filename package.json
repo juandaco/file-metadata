@@ -19,7 +19,7 @@
   "homepage": "https://github.com/juandaco/file-metadata#readme",
   "dependencies": {
     "express": "^4.14.1",
-    "mongodb": "^2.2.22"
+    "multer": "^1.3.0"
   },
   "engines": {
     "node": "7.4.0"

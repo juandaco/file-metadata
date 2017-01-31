@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>File Metadata</title>
+</head>
+
+<body>
+  <p>Submit a file to view it's filesize.</p>
+  <form name="fileSubmit" action="/get-file-size" method="post" enctype="multipart/form-data" onsubmit="validateMyForm()">
+    <input type="file" name="file">
+    <input type="submit">
+  </form>
+  <script type="text/javascript">
+	  function validateMyForm() {
+	 		const file = document.querySelectorAll('input[type=file]'); 
+	 		console.log();
+	    if (!file[0].value) {
+	      alert("Please submit a file!!!");
+	      event.preventDefault();
+	      return false;
+	    }
+		  return true;
+	  }
+  </script>
+</body>
+
+</html>
